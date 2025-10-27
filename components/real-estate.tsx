@@ -1,7 +1,13 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { MapPin, TrendingUp, Award } from "lucide-react";
+import Image from "next/image";
+import dynamic from "next/dynamic";
+const MapPin = dynamic(() => import("lucide-react").then((m) => m.MapPin));
+const TrendingUp = dynamic(() =>
+  import("lucide-react").then((m) => m.TrendingUp)
+);
+const Award = dynamic(() => import("lucide-react").then((m) => m.Award));
 
 export default function RealEstate() {
   const [isVisible, setIsVisible] = useState(false);
@@ -10,17 +16,12 @@ export default function RealEstate() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
+        if (entry.isIntersecting) setIsVisible(true);
       },
       { threshold: 0.1 }
     );
 
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
+    if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
   }, []);
 
@@ -43,8 +44,9 @@ export default function RealEstate() {
   ];
 
   return (
-    <section ref={ref} className="py-20 bg-secondary/30">
+    <section ref={ref} className="py-20 bg-secondary/30" id="realestate">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-4">
             Real Estate Excellence
@@ -54,6 +56,7 @@ export default function RealEstate() {
           </p>
         </div>
 
+        {/* Features */}
         <div className="grid md:grid-cols-3 gap-8 mb-16">
           {features.map((feature, index) => {
             const Icon = feature.icon;
@@ -79,19 +82,28 @@ export default function RealEstate() {
           })}
         </div>
 
+        {/* Image Grid */}
         <div className="grid md:grid-cols-2 gap-8">
           <div className="relative h-80 bg-gradient-to-br from-accent/20 to-primary/20 rounded-2xl overflow-hidden">
-            <img
+            <Image
               src="/luxury-residential-property.jpg"
               alt="Luxury residential property"
-              className="w-full h-full object-cover"
+              fill
+              className="object-cover"
+              priority={false}
+              loading="lazy" // Hero-like image, loads early
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
           </div>
           <div className="relative h-80 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl overflow-hidden">
-            <img
+            <Image
               src="/modern-commercial-building.png"
               alt="Commercial real estate building"
-              className="w-full h-full object-cover"
+              fill
+              className="object-cover"
+              priority={false}
+              loading="lazy"
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
           </div>
         </div>

@@ -84,6 +84,7 @@ export default function Footer() {
             <h4 className="font-bold mb-4">Follow Us</h4>
             <div className="flex gap-4">
               <a
+                aria-label="Social Media - Facebook"
                 href="#"
                 className="w-10 h-10 bg-background/20 rounded-lg flex items-center justify-center hover:bg-background/30 transition-colors"
               >
@@ -91,18 +92,21 @@ export default function Footer() {
               </a>
               <a
                 href="#"
+                aria-label="Social Media - Twitter"
                 className="w-10 h-10 bg-background/20 rounded-lg flex items-center justify-center hover:bg-background/30 transition-colors"
               >
                 <Twitter size={20} />
               </a>
               <a
                 href="#"
+                aria-label="Social Media - LinkedIn"
                 className="w-10 h-10 bg-background/20 rounded-lg flex items-center justify-center hover:bg-background/30 transition-colors"
               >
                 <Linkedin size={20} />
               </a>
               <a
                 href="#"
+                aria-label="Social Media - Instagram"
                 className="w-10 h-10 bg-background/20 rounded-lg flex items-center justify-center hover:bg-background/30 transition-colors"
               >
                 <Instagram size={20} />

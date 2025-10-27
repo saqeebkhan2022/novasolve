@@ -50,6 +50,7 @@ export default function CTASection() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <a
                 href="tel:+1234567890"
+                aria-label="Call Now"
                 className="px-8 py-3 bg-gradient-to-r from-primary to-accent text-white rounded-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 font-bold text-base w-full sm:w-auto inline-block text-center"
               >
                 Call Us Now
