@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 export default function About() {
@@ -80,10 +81,12 @@ export default function About() {
             </div>
 
             <div className="relative h-96 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl overflow-hidden">
-              <img
+              <Image
                 src="/modern-office-technology-real-estate.jpg"
                 alt="Nova Solve office and real estate solutions"
-                className="w-full h-full object-cover"
+                fill
+                className="object-cover"
+                priority={false}
               />
             </div>
           </div>
